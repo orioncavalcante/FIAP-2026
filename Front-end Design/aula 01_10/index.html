@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações com Tailwind css</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    keyframes: {
+                        fade: {
+                            '0%': {opacity: '0'},
+                            '100%': {opacity: '1'},
+                        },
+                        wiggle: {
+                            '0%, 100%': {transform: 'rotate(-3deg)'},
+                            '50%': {transform: 'rotate(3deg)'}
+                        }
+                    },
+                    animation: {
+                        fade: 'fade 1s ease-in-out infinite',
+                        wiggle: 'wiggle 0.5s ease-in-out infinite'
+                    },
+
+                }
+            }
+        }
+    </script> -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            @keyframes fade {
+                0% {opacity: 0;}
+                100% {opacity: 1;}
+            }
+
+            @keyframes wiggle {
+                0%, 100% {transform: rotate(-3deg);}
+                50% {transform: rotate(3deg);}
+            }
+
+            .animate-fade{
+                animation: fade 1s ease-in-out infinite;
+            }
+
+            .animate-wiggle{
+                animation: wiggle 0.5s ease-in-out infinite
+            }
+        }
+    </style>
+
+</head>
+<body class="m-4">
+    <button class="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded transition duration-500 ease-in-out">
+        Clique suave
+    </button>
+
+    <div class="w-10 h-10 bg-blue-500 rounded-full animate-bounce mt-8">8</div>
+
+    <div class="p-4 bg-green-300 rounded w-20 animate-fade">Fade</div>
+    <button class="animate-wiggle">Treme</button>
+    <div class="animate-wiggle w-40 h-40 bg-green-500 mt-4">G</div>
+    <div class="animate-wiggle w-40 h-40 bg-green-500 mt-4"></div>
+</body>
+</html>
